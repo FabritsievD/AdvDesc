@@ -5,6 +5,7 @@ import com.Advertisements.model.Advert;
 import com.Advertisements.model.Section;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -14,9 +15,10 @@ public class AdvertDaoImpl implements AdvertDao {
 
 //private static final Logger logger = LoggerFactory.getLogger(AdvertDaoImpl.class);
 
-private SessionFactory sessionFactory ;
+    private SessionFactory sessionFactory ;
 
-    public void setSessionFactory(SessionFactory sessionFactory) {
+    @Autowired
+    public AdvertDaoImpl(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }
 

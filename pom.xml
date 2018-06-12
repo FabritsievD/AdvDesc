@@ -61,7 +61,7 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-tx</artifactId>
-			<version>5.0.6.RELEASE</version>
+			<version>${spring.version}</version>
 		</dependency>
 
 
@@ -147,6 +147,12 @@
 
 	<build>
 		<finalName>AdvDesc</finalName>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
