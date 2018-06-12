@@ -5,6 +5,6 @@
     <title>Title</title>
 </head>
 <body>
-<a href="/adverts" target="_blank">Adverts List</a>
+<a href="/AdvDesc/adverts" target="_blank">Adverts List</a>
 </body>
 </html>

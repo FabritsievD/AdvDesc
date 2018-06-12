@@ -27,6 +27,16 @@ public class Advert {
     @Temporal(value=TemporalType.DATE)
     private Date date;
 
+    public Advert() {
+    }
+
+    public Advert(String title, Section section, String description, int price) {
+        this.title = title;
+        this.section = section;
+        this.description = description;
+        this.price = price;
+    }
+
     public int getId() {
         return id;
     }

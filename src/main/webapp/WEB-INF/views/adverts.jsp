@@ -1,5 +1,6 @@
 
-<%@ taglib uri="http://java.sun.com/jstl/core" prefix="c"%>
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ page session="false" %>
@@ -10,7 +11,7 @@
 </head>
 <body>
 
-<a href="../../index.jsp">Back to main menu</a>
+<a href="../../home.jsp">Back to main menu</a>
 <br>
 <h1>List of Adverts</h1>
 <c:if  test="${!empty listAdverts}">
@@ -41,7 +42,7 @@
 
 <h1>Add advert</h1>
 
-<c:url var="addAction" value="/adverts/add">
+<c:url var="addAction" value="/adverts/add"/>
     <form:form action="${addAction}" commandName="advert">
     <table>
         <c:if test="${!empty advert.title}">
@@ -53,10 +54,10 @@
                 </td>
                 <td>
                     <form:input path="id" readonly="true" size="8" disabled="true"/>
-                    <form:hidden path="id"/>
+
                 </td>
             </tr>
-
+        </c:if>
             <tr>
                 <td>
                     <form:label path="name">
@@ -64,14 +65,34 @@
                     </form:label>
                 </td>
                 <td>
-                    <form:input path="name" />
+                    <form:input path="title" />
 
                 </td>
             </tr>
-    </c:if>
-    </table>
+        <tr>
+            <td>
+                <form:label path="section">
+                    <spring:message text="section"/>
+                </form:label>
+            </td>
+            <td>
+                <form:input path="section"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <form:label path="price">
+                    <spring:message text="price"/>
+                </form:label>
+            </td>
+            <td>
+                <form:input path="price"/>
+            </td>
+        </tr>
 
-</c:url>
+    </table>
+    </form:form>
+
 
 </body>
 </html>
