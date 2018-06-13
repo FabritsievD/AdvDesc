@@ -3,6 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ page import="com.Advertisements.model.Section" %>
 <%@ page session="false" %>
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -80,16 +81,16 @@
                 </form:label>
             </td>
             <td>
-                <c:forEach items="${Section}" var="section">
+<form:label path="section">
                 <form:select path="section">
-                    <form:option value="1"></form:option>
-                    <form:option value="2">Realty</form:option>
-                    <form:option value="3">Vehicles</form:option>
-                    <form:option value="4">Electronics</form:option>
-                    <form:option value="5">Sport</form:option>
-                    <form:option value="6">Clothes</form:option>
+                    <form:option value="All">${Section.All}</form:option>
+                    <form:option value="Clothes">${Section.Clothes}</form:option>
+                    <form:option value="Electronics">${Section.Electronics}</form:option>
+                    <form:option value="Realty">${Section.Realty}</form:option>
+                    <form:option value="Sport">${Section.Sport}</form:option>
+                    <form:option value="Vehicles">${Section.Vehicles}</form:option>
                 </form:select>
-            </c:forEach>
+</form:label>
             </td>
         </tr>
 
