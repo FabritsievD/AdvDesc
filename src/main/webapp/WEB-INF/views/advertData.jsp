@@ -1,16 +1,71 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Faber
-  Date: 10.06.2018
-  Time: 18:12
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@ page session="false" %>
+
 <html>
 <head>
-    <title>Title</title>
+    <title>AdvertData</title>
+
+    <style type="text/css">
+        .tg {
+            border-collapse: collapse;
+            border-spacing: 0;
+            border-color: #ccc;
+        }
+
+        .tg td {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            padding: 10px 5px;
+            border-style: solid;
+            border-width: 1px;
+            overflow: hidden;
+            word-break: normal;
+            border-color: #ccc;
+            color: #333;
+            background-color: #fff;
+        }
+
+        .tg th {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            font-weight: normal;
+            padding: 10px 5px;
+            border-style: solid;
+            border-width: 1px;
+            overflow: hidden;
+            word-break: normal;
+            border-color: #ccc;
+            color: #333;
+            background-color: #f0f0f0;
+        }
+
+        .tg .tg-4eph {
+            background-color: #f9f9f9
+        }
+    </style>
+
 </head>
 <body>
+<h1>Advert Details</h1>
 
+<table class="tg">
+    <tr>
+        <th width="80">ID</th>
+        <th width="120">Title</th>
+        <th width="120">Section</th>
+        <th width="120">Description</th>
+        <th>Price</th>
+    </tr>
+    <tr>
+        <td>${advert.id}</td>
+        <td>${advert.title}</td>
+        <td>${advert.section}</td>
+        <td>${advert.description}</td>
+        <td><${advert.price}/td>
+    </tr>
+</table>
 </body>
 </html>

@@ -1,10 +1,12 @@
 package com.Advertisements.model;
 
+import org.hibernate.annotations.Proxy;
+
 import javax.persistence.*;
-import java.util.Date;
 
 @Entity
 @Table(name="adverts")
+@Proxy(lazy=false)
 public class Advert {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,9 +25,6 @@ public class Advert {
     @Column
     private int price;
 
-    @Column
-    @Temporal(value=TemporalType.DATE)
-    private Date date;
 
     public Advert() {
     }
@@ -77,13 +76,7 @@ public class Advert {
         this.price = price;
     }
 
-    public Date getDate() {
-        return date;
-    }
 
-    public void setDate(Date date) {
-        this.date = date;
-    }
 
     @Override
     public String toString() {
@@ -93,7 +86,6 @@ public class Advert {
                 ", section=" + section +
                 ", description='" + description + '\'' +
                 ", price=" + price +
-                ", date=" + date +
                 '}';
     }
 }

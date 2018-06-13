@@ -61,7 +61,7 @@ public class AdvertDaoImpl implements AdvertDao {
     @SuppressWarnings("unchecked")
     public List<Advert> getAllAdverts(){
         Session session =  this.sessionFactory.getCurrentSession();
-        List<Advert> list = (List<Advert>) session.createQuery("from adverts").list();
+        List<Advert> list = (List<Advert>) session.createQuery("from Advert").list();
        // list.stream().forEach(a->logger.info("Adverts list:"+a));
         return list;
 

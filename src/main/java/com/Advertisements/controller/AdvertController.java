@@ -24,9 +24,9 @@ public class AdvertController {
 		return "home";
 	}
 
-	@RequestMapping(value="adverts",method = RequestMethod.GET)
+	@RequestMapping(value="/adverts",method = RequestMethod.GET)
 	public String listAdverts(Model model){
-		model.addAttribute("adverts", new Advert());
+		model.addAttribute("advert", new Advert());
 		model.addAttribute("listAdverts",this.advertService.getAllAdverts());
 		return "adverts";
 	}
@@ -40,6 +40,7 @@ public class AdvertController {
 		else {
 			this.advertService.updateAdvert(advert);
 			}
+
 		return "redirect:/adverts";
 	}
 
@@ -49,14 +50,14 @@ public class AdvertController {
 		return "redirect:/adverts";
 	}
 
-	@RequestMapping("edit/{id}")
+	@RequestMapping("/edit/{id}")
 	public String editAdvert(@PathVariable("id") int id, Model model){
 		model.addAttribute("advert",this.advertService.getAdvertById(id));
 		model.addAttribute("listAdverts",this.advertService.getAllAdverts());
 		return "adverts";
 	}
 
-	@RequestMapping("advertData/{id}")
+	@RequestMapping("/advertData/{id}")
 	public String advertData(@PathVariable("id") int id, Model model){
 		model.addAttribute("advert",this.advertService.getAdvertById(id));
 		return "advertData";
