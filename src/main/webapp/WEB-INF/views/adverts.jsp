@@ -16,6 +16,9 @@
 
 <br>
 <h1>List of Adverts</h1>
+
+
+
 <c:if  test="${!empty listAdverts}">
     <div class="advList">
     <table class="bordered">
@@ -32,9 +35,11 @@
         <c:forEach items="${listAdverts}" var="advert">
         <tr>
             <td>${advert.id}</td>
-            <td><a href="/advertData/${advert.id}" target="_blank">${advert.title}</a></td>
+            <td style="width: 200px;height:40px;overflow: hidden">
+                <a href="/advertData/${advert.id}" target="_blank">${advert.title}</a>
+            </td>
             <td>${advert.section}</td>
-            <td>${advert.description}</td>
+            <td style="width: 400px;height: 40px;overflow: hidden">${advert.description}</td>
             <td>${advert.price}</td>
             <td><a href="<c:url value="/edit/${advert.id}"/>">Edit</a></td>
             <td><a href="<c:url value="/remove/${advert.id}"/>">Delete</a></td>
@@ -47,11 +52,13 @@
 <h1>Add advert</h1>
 
 <c:url var="addAction" value="/adverts/add"/>
+
+
     <form:form action="${addAction}" commandName="advert">
     <table class="menu">
         <c:if test="${!empty advert.title}">
             <tr>
-                <td style="width: 5%">
+                <td >
                     <form:label path="id">
                             <spring:message text="id"/>
                         </form:label>
@@ -64,7 +71,7 @@
             </tr>
         </c:if>
             <tr>
-                <td style="width: 15%">
+                <td >
                     <form:label path="title">
                         <spring:message text="title"/>
                     </form:label>
@@ -75,12 +82,12 @@
                 </td>
             </tr>
         <tr>
-            <td style="width: 10%">
+            <td >
                 <form:label path="section">
                     <spring:message text="section"/>
                 </form:label>
             </td>
-            <td>
+            <td  >
 <form:label path="section">
                 <form:select path="section">
                     <form:option value="All">${Section.All}</form:option>
@@ -106,7 +113,7 @@
         </tr>
 
         <tr>
-            <td style="width: 10%">
+            <td >
                 <form:label path="price">
                     <spring:message text="price"/>
                 </form:label>
@@ -116,7 +123,7 @@
             </td>
         </tr>
         <tr>
-            <td style="width: 10%" colspan="2">
+            <td  colspan="2">
                 <c:if test="${!empty advert.title}">
                     <input type="submit"
                            value="<spring:message text="Edit Advert"/>"/>
@@ -131,6 +138,99 @@
     </table>
     </form:form>
 
+
+<%--<c:url var="addSelect" value="/adverts/select"/${}>--%>
+<div style="position: relative; right: -450px;bottom: 220px">
+
+    <h1 >Select Advert</h1>
+    <%--<form:form action="${addSelect}" commandName="advert">--%>
+
+    <table>
+        <td>
+            <form action="<c:url value="/select"/>">
+                <label for="id">ID:</label>
+                <input type="text" id="id" name="id" placeholder="0"/>
+
+                <label for="title">Title:</label>
+                <input  type="text" id="title" name="title" placeholder="title"/>
+
+                <label for="section">Section:</label>
+                <select   name="section" id="section" style="width: 100px">
+
+                    <option>All</option>
+                    <option>Clothes</option>
+                    <option>Electronics</option>
+                    <option>Realty</option>
+                    <option>Sport</option>
+                    <option>$Vehicles</option>
+                </select>
+
+
+
+                <label for="price">Price:
+                    <select name="moreOrless" id="moreOrless"  style="width: 90px">
+                        <option></option>
+                        <option>More</option>
+                        <option>Less</option>
+                    </select>
+                </label>
+                <input  type="text" id="price" name="price" placeholder="0"/>
+
+                <input type="submit" value="Search"/>
+            </form>
+        </td>
+    <%--<td >--%>
+        <%--<form:label path="id">--%>
+            <%--<spring:message text="id"/>--%>
+        <%--</form:label>--%>
+    <%--</td>--%>
+        <%--<td>--%>
+        <%--<form:input path="id"  size="8" />--%>
+    <%--</td>--%>
+   <%-- </tr>
+        <c:if test="${!empty advert.title}">
+    <tr>
+        <td >
+            <form:label path="title">
+                <spring:message text="title"/>
+            </form:label>
+        </td>
+        <td>
+            <form:input path="title" />
+
+        </td>
+    </tr>
+    <tr>
+        <td >
+            <form:label path="section">
+                <spring:message text="section"/>
+            </form:label>
+        </td>
+        <td  >
+            <form:label path="section">
+                <form:select path="section">
+                    <form:option value="All">${Section.All}</form:option>
+                    <form:option value="Clothes">${Section.Clothes}</form:option>
+                    <form:option value="Electronics">${Section.Electronics}</form:option>
+                    <form:option value="Realty">${Section.Realty}</form:option>
+                    <form:option value="Sport">${Section.Sport}</form:option>
+                    <form:option value="Vehicles">${Section.Vehicles}</form:option>
+                </form:select>
+            </form:label>
+        </td>
+    </tr>
+    <td >
+        <form:label path="price">
+            <spring:message text="price"/>
+        </form:label>
+    </td>--%>
+        <%--</c:if>--%>
+        <input type="submit"
+               value="<spring:message text="select Advert"/>"/>
+    </table>
+<%--</form:form>--%>
+
+</div>
 
 </body>
 </html>

@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Map;
+
 @Service
 public class AdvertServiceImpl implements AdvertService {
 
@@ -51,7 +53,7 @@ public void setAdvertDao(AdvertDao advertDao) {
 
     @Override
     @Transactional
-    public List<Advert> getAdvertsBySection(Section section) {
-        return this.advertDao.getAdvertsBySection(section);
+    public  List<Advert> getAdvertsByParams(Map<String,String> params) {
+        return this.advertDao.getAdvertsByParams(params);
     }
 }

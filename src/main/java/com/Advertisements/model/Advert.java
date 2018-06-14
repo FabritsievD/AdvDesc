@@ -56,8 +56,8 @@ public class Advert {
         return section;
     }
 
-    public void setSection(Section section) {
-        this.section = section;
+    public void setSection(String section) {
+        this.section = Section.valueOf(section);
     }
 
     public String getDescription() {

@@ -3,12 +3,17 @@ package com.Advertisements.dao;
 
 import com.Advertisements.model.Advert;
 import com.Advertisements.model.Section;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.transform.Transformers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import javax.xml.transform.Transformer;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @Repository
 public class AdvertDaoImpl implements AdvertDao {
@@ -52,11 +57,34 @@ public class AdvertDaoImpl implements AdvertDao {
     }
 
 
-    public List<Advert> getAdvertsBySection(Section section) {
+    public List<Advert> getAdvertsByParams(Map<String,String> params) {
+        String id =  params.get("id");
+        String title = params.get("title");
+        Section section = Section.valueOf(params.get("section"));
+        String price =  params.get("price");
+
+        if(!id.equals("")) {
+            List<Advert> list = new ArrayList();
+            list.add(this.getAdvertById( Integer.valueOf(params.get("id"))));
+            return list;
+        }
+
+        if(id.equals("0")&title.equals("")&section.toString().equals("")&price.equals(""))
+            return this.getAllAdverts();
+
+
+
         Session session = this.sessionFactory.getCurrentSession();
-        List<Advert> list = session.createQuery("from adverts where advert.section =:section").list();
+
+        Query query = session.createSQLQuery(
+                "select * from adverts where price ='"+price+"' ");
+        List<Advert> list = query.setResultTransformer(Transformers.aliasToBean(Advert.class)).list();
+        Advert advert = list.get(0);
+        advert.getId();
+        advert.getDescription();
         // list.stream().forEach(a->logger.info("Adverts list from "+section+":"+a));
-        return list;
+
+        return (List<Advert>) query.list();
     }
     @SuppressWarnings("unchecked")
     public List<Advert> getAllAdverts(){

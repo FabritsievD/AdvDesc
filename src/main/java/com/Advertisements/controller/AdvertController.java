@@ -1,14 +1,16 @@
 package com.Advertisements.controller;
 
 import com.Advertisements.model.Advert;
+import com.Advertisements.model.Section;
 import com.Advertisements.service.AdvertService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.DispatcherServlet;
+
+import java.util.Map;
 
 @Controller
 public class AdvertController {
@@ -61,6 +63,13 @@ public class AdvertController {
 	public String advertData(@PathVariable("id") int id, Model model){
 		model.addAttribute("advert",this.advertService.getAdvertById(id));
 		return "advertData";
+	}
+
+	@RequestMapping(value="/select",method = RequestMethod.GET)
+	public String select(@RequestParam Map<String, String> params, Model model){
+		//model.addAttribute("advert", new Advert());
+		model.addAttribute("listAdverts",this.advertService.getAdvertsByParams(params));
+		return "select";
 	}
 }
 

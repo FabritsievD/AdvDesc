@@ -5,6 +5,8 @@
     <title>Title</title>
 </head>
 <body>
-<a href="/adverts" target="_blank">Adverts List</a>
+<div style="margin: 20% 15% 20% 15%">
+<a style="font-size: 150px;font-family: 'Arabic Typesetting';" href="/adverts" target="_blank">OLX CRYING MAKER</a>
+</div>
 </body>
 </html>

@@ -4,6 +4,7 @@ import com.Advertisements.model.Advert;
 import com.Advertisements.model.Section;
 
 import java.util.List;
+import java.util.Map;
 
 public interface AdvertService {
     Advert getAdvertById(int id);
@@ -16,5 +17,5 @@ public interface AdvertService {
 
     List<Advert> getAllAdverts();
 
-    List<Advert> getAdvertsBySection(Section section);
+    List<Advert> getAdvertsByParams(Map<String,String> params);
 }
