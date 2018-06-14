@@ -1,6 +1,7 @@
 package com.Advertisements.controller;
 
 import com.Advertisements.model.Advert;
+import com.Advertisements.model.Section;
 import com.Advertisements.service.AdvertService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -33,6 +34,7 @@ public class AdvertController {
 
     @RequestMapping(value = "/adverts/add", method = RequestMethod.POST)
     public String addAdvert(@ModelAttribute("advert") Advert advert) {
+        if(advert.getSection()==null) advert.setSection("All");
         if (advert.getId() == 0) {
             this.advertService.addAdvert(advert);
         } else {

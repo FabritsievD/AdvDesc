@@ -66,6 +66,7 @@
 
                 </td>
             </tr>
+
         </c:if>
         <tr>
             <td>
@@ -79,12 +80,16 @@
             </td>
         </tr>
         <tr>
+            <c:if test="${empty advert.title}">
             <td>
                 <form:label path="section">
                     <spring:message text="section"/>
                 </form:label>
             </td>
+
+
             <td>
+
                 <form:label path="section">
                     <form:select path="section">
                         <form:option value="All">${Section.All}</form:option>
@@ -96,6 +101,7 @@
                     </form:select>
                 </form:label>
             </td>
+            </c:if>
         </tr>
 
         <tr>
