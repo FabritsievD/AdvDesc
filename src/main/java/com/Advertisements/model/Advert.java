@@ -5,8 +5,8 @@ import org.hibernate.annotations.Proxy;
 import javax.persistence.*;
 
 @Entity
-@Table(name="adverts")
-@Proxy(lazy=false)
+@Table(name = "adverts")
+@Proxy(lazy = false)
 public class Advert {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,7 +16,7 @@ public class Advert {
     private String title;
 
     @Enumerated(EnumType.STRING)
-    @Column(columnDefinition ="enum('All','Realty','Vehicles','Electronics','Sport','Clothes')")
+    @Column(columnDefinition = "enum('All','Realty','Vehicles','Electronics','Sport','Clothes')")
     private Section section;
 
     @Column
@@ -75,7 +75,6 @@ public class Advert {
     public void setPrice(int price) {
         this.price = price;
     }
-
 
 
     @Override

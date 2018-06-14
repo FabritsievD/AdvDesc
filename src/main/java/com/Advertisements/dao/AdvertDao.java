@@ -1,7 +1,7 @@
 package com.Advertisements.dao;
 
 import com.Advertisements.model.Advert;
-import com.Advertisements.model.Section;
+
 import java.util.List;
 import java.util.Map;
 
@@ -17,6 +17,6 @@ public interface AdvertDao {
 
     List<Advert> getAllAdverts();
 
-    List<Advert> getAdvertsByParams(Map<String,String> params);
+    List<Advert> getAdvertsByParams(Map<String, String> params);
 
-    }
+}

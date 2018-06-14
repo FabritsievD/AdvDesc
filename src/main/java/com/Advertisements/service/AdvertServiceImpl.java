@@ -2,10 +2,7 @@ package com.Advertisements.service;
 
 import com.Advertisements.dao.AdvertDao;
 import com.Advertisements.model.Advert;
-import com.Advertisements.model.Section;
-
 import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -16,10 +13,11 @@ import java.util.Map;
 public class AdvertServiceImpl implements AdvertService {
 
     private AdvertDao advertDao;
-@Autowired
-public void setAdvertDao(AdvertDao advertDao) {
+
+    @Autowired
+    public void setAdvertDao(AdvertDao advertDao) {
         this.advertDao = advertDao;
-   }
+    }
 
     @Override
     @Transactional
@@ -53,7 +51,7 @@ public void setAdvertDao(AdvertDao advertDao) {
 
     @Override
     @Transactional
-    public  List<Advert> getAdvertsByParams(Map<String,String> params) {
+    public List<Advert> getAdvertsByParams(Map<String, String> params) {
         return this.advertDao.getAdvertsByParams(params);
     }
 }

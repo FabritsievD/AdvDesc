@@ -1,27 +1,27 @@
 html,body {
-    font: 11pt Arial, Helvetica, sans-serif; /* Рубленый шрифт текста */
-    margin: 0; /* Отступы на странице */
+    font: 11pt Arial, Helvetica, sans-serif;
+    margin: 0;
     height: 100%;
     width: 100%;
 }
-.menu { /* Левая колонка */
+.menu {
 
-    border: 1px solid #333; /* Параметры рамки вокруг */
-    width: 20%; /* Ширина колонки */
-    padding: 5px; /* Поля вокруг текста */
-    margin: 10px 10px 20px 5px; /* Значения отступов */
+    border: 1px solid #333;
+    width: 20%;
+    padding: 5px;
+    margin: 10px 10px 20px 5px;
 }
 
 .advList{
     width: 80%;
     height: 40%;
-    margin: 10px 30% 20px 1%; /* Значения отступов */
-    padding: 5px; /* Поля вокруг текста */
-    border: 1px solid #333; /* Параметры рамки */
-    overflow-y: scroll; /* прокрутка по вертикали */
+    margin: 10px 30% 20px 1%;
+    padding: 5px;
+    border: 1px solid #333;
+    overflow-y: scroll;
 }
 
-.bordered, menu {
+.bordered,  .select {
 
     width: 100%;
     border: solid #ccc 1px;
